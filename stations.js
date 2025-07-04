@@ -5,12 +5,23 @@ array: [
     lng: 72.760957,
     details:
       "'Y' Junction Udhana Magdalla Road BRTS, Vesu, Rundh, Surat, Gujarat 394518, India",
+    timetable: [
+      { bus_number: "12", destination: "Sarthana Nature Park BRTS" },
+      { bus_number: "12", destination: "ONGC Colony" },
+    ],
   },
   {
     name: "'Y' Junction Dumas Road BRTS",
     lat: 21.144231,
     lng: 72.757999,
     details: "'Y' Junction Dumas Road BRTS, Vesu, Surat, Gujarat 394518, India",
+    timetable: [
+      { bus_number: "216K", destination: "Chowk" },
+      { bus_number: "12", destination: "Sarthana Nature Park BRTS" },
+      { bus_number: "136", destination: "Surat Airport" },
+      { bus_number: "14", destination: "ONGC Colony" },
+      { bus_number: "136", destination: "Railway Station Terminal" },
+    ],
   },
   {
     name: "Maharana Pratap Junction BRTS",
@@ -18,6 +29,10 @@ array: [
     lng: 72.766442,
     details:
       "Maharana Pratap Junction BRTS, Vesu, Rundh, Surat, Gujarat 394518, India",
+    timetable: [
+      { bus_number: "12", destination: "Sarthana Nature Park BRTS" },
+      { bus_number: "12", destination: "ONGC Colony" },
+    ],
   },
   {
     name: "Magdalla T Junction BRTS",
@@ -25,36 +40,74 @@ array: [
     lng: 72.760584,
     details:
       "Magdalla T Junction BRTS, Piplod, Rundh, Surat, Gujarat 394518, India",
+    timetable: [
+      { bus_number: "14", destination: "Kosad EWS H2" },
+      { bus_number: "136", destination: "Surat Airport" },
+      { bus_number: "14", destination: "ONGC Colony" },
+      { bus_number: "216B", destination: "Chowk" },
+      { bus_number: "216K", destination: "Chowk" },
+      { bus_number: "216K", destination: "Dumas Langar" },
+      { bus_number: "206", destination: "Chowk" },
+    ],
   },
   {
     name: "Jolly Residency",
     lat: 21.146242,
     lng: 72.768395,
     details: "Jolly Residency, Vesu, Rundh, Surat, Gujarat 394518, India",
+    timetable: [
+      { bus_number: "106R", destination: "Railway Station Terminal" },
+      { bus_number: "106R", destination: "Abhva Gaam" },
+    ],
   },
   {
     name: "S.D Planets School",
     lat: 21.152731,
     lng: 72.771855,
     details: "S.D Planets School, Piplod, Surat, Gujarat 395007, India",
+    timetable: [
+      { bus_number: "106R", destination: "Abhva Gaam" },
+      { bus_number: "106R", destination: "Railway Station Terminal" },
+    ],
   },
   {
     name: "S.D. Jain School BRTS",
     lat: 21.151883,
     lng: 72.772,
     details: "S.D. Jain School BRTS, Piplod, Surat, Gujarat 395007, India",
+    timetable: [
+      { bus_number: "706", destination: "Iskcon Circle" },
+      { bus_number: "12", destination: "ONGC Colony" },
+      { bus_number: "12", destination: "Sarthana Nature Park BRTS" },
+      { bus_number: "106R", destination: "Railway Station Terminal" },
+    ],
   },
   {
     name: "J.H. Ambani School BRTS",
     lat: 21.152066,
     lng: 72.775294,
     details: "J.H. Ambani School BRTS, Vesu, Surat, Gujarat 395007, India",
+    timetable: [
+      { bus_number: "706", destination: "V.N.S.G. University" },
+      { bus_number: "12", destination: "Sarthana Nature Park BRTS" },
+      { bus_number: "706", destination: "Iskcon Circle" },
+    ],
   },
   {
     name: "Someshwar Junction BRTS",
     lat: 21.153747,
     lng: 72.779741,
     details: "Someshwar Junction BRTS, Surat, Gujarat 395007, India",
+    timetable: [
+      { bus_number: "706", destination: "Iskcon Circle" },
+      { bus_number: "12", destination: "Sarthana Nature Park BRTS" },
+      { bus_number: "15AA", destination: "Althan Depot/Terminal" },
+      { bus_number: "226J", destination: "Kosad Gam" },
+      { bus_number: "15CC", destination: "Althan Depot/Terminal" },
+      { bus_number: "706", destination: "V.N.S.G. University" },
+      { bus_number: "126R", destination: "Railway Station Terminal" },
+      { bus_number: "506", destination: "Sunrise Vidyalaya Dindoli" },
+    ],
   },
   {
     name: "Piplod Main Road",
@@ -62,12 +115,14 @@ array: [
     lng: 72.779231,
     details:
       "Piplod Main Road, Sarunagar, Piplod, Surat, Gujarat 395007, India",
+    timetable: [],
   },
   {
     name: "K.P Commerce College",
     lat: 21.183411,
     lng: 72.808864,
     details: "K.P Commerce College, Athwa Gate, Surat, Gujarat 395001, India",
+    timetable: [{ bus_number: "106R", destination: "Abhva Gaam" }],
   },
   {
     name: "Police Commissioner Office",
@@ -75,6 +130,15 @@ array: [
     lng: 72.803757,
     details:
       "Police Commissioner Office, Chopati, Police Line, Athwa, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "136", destination: "Railway Station Terminal" },
+      { bus_number: "206", destination: "Chowk" },
+      { bus_number: "216B", destination: "Bhimpore" },
+      { bus_number: "153R", destination: "Kapodara" },
+      { bus_number: "136", destination: "Surat Airport" },
+      { bus_number: "153R", destination: "Umra Health Centre" },
+      { bus_number: "706", destination: "ISKCON Circle" },
+    ],
   },
   {
     name: "City Civic Centre",
@@ -82,12 +146,33 @@ array: [
     lng: 72.801418,
     details:
       "City Civic Centre, Navo Mohollow, Meghdoot Society, Athwalines, Athwa, Surat, Gujarat 395007, India",
+    timetable: [
+      { bus_number: "153R", destination: "Umra Health Centre" },
+      { bus_number: "226J", destination: "V.N.S.G. University" },
+      { bus_number: "716", destination: "Sai Pujan Residency" },
+      { bus_number: "136", destination: "Railway Station Terminal" },
+      { bus_number: "226J", destination: "Kosad Gam" },
+      { bus_number: "216K", destination: "Dumas Langar" },
+      { bus_number: "716", destination: "Gail India Ltd VIP Road U" },
+      { bus_number: "706", destination: "ISKCON Circle" },
+    ],
   },
   {
     name: "Gandhi College",
     lat: 21.181611,
     lng: 72.815645,
     details: "Gandhi College, Majura Gate, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "106R", destination: "Railway Station Terminal" },
+      { bus_number: "01", destination: "Vanita Vishram Ground" },
+      { bus_number: "136", destination: "Railway Station Terminal" },
+      { bus_number: "106S", destination: "Abhva Gam" },
+      { bus_number: "205G", destination: "Gabheni Gam" },
+      { bus_number: "02", destination: "Majura Gate1" },
+      { bus_number: "216K", destination: "Dumas Langar" },
+      { bus_number: "117", destination: "Suman Jyot EWS" },
+      { bus_number: "136", destination: "Surat Airport" },
+    ],
   },
   {
     name: "Mahavir Hospital",
@@ -95,6 +180,12 @@ array: [
     lng: 72.814035,
     details:
       "Mahavir Hospital, Opp. Gandhi Smruti Bhavan, Nanpura, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "205G", destination: "Gabheni Gaam" },
+      { bus_number: "205S", destination: "Sachin Railway Station" },
+      { bus_number: "205K", destination: "Lajpore Jail" },
+      { bus_number: "205K", destination: "Chowk" },
+    ],
   },
   {
     name: "Girls Polytechnic",
@@ -102,12 +193,20 @@ array: [
     lng: 72.810452,
     details:
       "Girls Polytechnic, Kharwawad, Nanpura, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "216B", destination: "Bhimpore" },
+      { bus_number: "226J", destination: "Kosad Gaam" },
+      { bus_number: "216K", destination: "Dumas Langar" },
+      { bus_number: "206", destination: "C.K. Pithwala Eng. College" },
+      { bus_number: "226J", destination: "V.N.S.G. University" },
+    ],
   },
   {
     name: "Athvagate",
     lat: 21.185972,
     lng: 72.810066,
     details: "Athvagate, Athwa Gate, Surat, Gujarat 395001, India",
+    timetable: [],
   },
   {
     name: "Athwagate",
@@ -115,6 +214,16 @@ array: [
     lng: 72.811332,
     details:
       "Athwagate, Near Kalyan Apartment, Athwa Gate, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "136", destination: "Railway Station Terminal" },
+      { bus_number: "106S", destination: "Abhva Gaam" },
+      { bus_number: "02", destination: "Vanita Vishram Ground" },
+      { bus_number: "117", destination: "Suman Jyot EWS" },
+      { bus_number: "136", destination: "Surat Airport" },
+      { bus_number: "153R", destination: "Kapodara" },
+      { bus_number: "226J", destination: "Kosad Gam" },
+      { bus_number: "706", destination: "Iskcon Circle" },
+    ],
   },
   {
     name: "Man Mandir Apartment",
@@ -122,30 +231,64 @@ array: [
     lng: 72.814851,
     details:
       "Man Mandir Apartment, Timaliawad, Nanpura, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "205G", destination: "Gabheni Gaam" },
+      { bus_number: "205S", destination: "Sachin Railway Station" },
+      { bus_number: "205K", destination: "Lajpore Jail" },
+      { bus_number: "205K", destination: "Chowk" },
+    ],
   },
   {
     name: "Nanpura Post Office",
     lat: 21.190254,
     lng: 72.812963,
     details: "Nanpura Post Office, Nanpura, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "216B", destination: "Bhimpore" },
+      { bus_number: "216K", destination: "Dumas Langar" },
+      { bus_number: "226J", destination: "Kosad Gam" },
+      { bus_number: "206", destination: "C.K. Pithwala Eng. College" },
+      { bus_number: "226J", destination: "V.N.S.G. University" },
+    ],
   },
   {
     name: "Bahumali",
     lat: 21.188453,
     lng: 72.810924,
     details: "Bahumali, Kharwawad, Nanpura, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "216B", destination: "Bhimpore" },
+      { bus_number: "226J", destination: "Kosad Gaam" },
+      { bus_number: "216K", destination: "Dumas Langar" },
+      { bus_number: "206", destination: "C.K. Pithwala Eng. College" },
+      { bus_number: "226J", destination: "V.N.S.G. University" },
+    ],
   },
   {
     name: "Kuvawadi",
     lat: 21.189654,
     lng: 72.817082,
     details: "Kuvawadi, Timaliawad, Nanpura, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "205G", destination: "Gabheni Gaam" },
+      { bus_number: "205S", destination: "Sachin Railway Station" },
+      { bus_number: "205K", destination: "Lajpore Jail" },
+      { bus_number: "205K", destination: "Chowk" },
+    ],
   },
   {
     name: "Machhiwad",
     lat: 21.191814,
     lng: 72.817168,
     details: "Machhiwad, Machhiwar, Surat, Gujarat 395001, India",
+    timetable: [
+      { bus_number: "205G", destination: "Gabheni Gaam" },
+      { bus_number: "205S", destination: "Sachin Railway Station" },
+      { bus_number: "204", destination: "Raj Empire Godadara" },
+      { bus_number: "209J", destination: "Vrukshlaxmi Society" },
+      { bus_number: "205K", destination: "Lajpore Jail" },
+      { bus_number: "205K", destination: "Chowk" },
+    ],
   },
   {
     name: "BAPS Swaminarayan Sanstha",
@@ -153,6 +296,10 @@ array: [
     lng: 72.807362,
     details:
       "BAPS Swaminarayan Sanstha, Anand Vatika Society, Bapu Nagar, Adajan, Surat, Gujarat 395009, India",
+    timetable: [
+      { bus_number: "147J", destination: "Lambe Hanuman Temple" },
+      { bus_number: "147J", destination: "Green City Bhatha" },
+    ],
   },
   {
     name: "Corporation School",
@@ -160,13 +307,10 @@ array: [
     lng: 72.809615,
     details:
       "Corporation School, Bapu Nagar, Adajan, Surat, Gujarat 395009, India",
-  },
-  {
-    name: "Gujrat Gas Circle",
-    lat: 21.193515,
-    lng: 72.801483,
-    details:
-      "Gujrat Gas Circle, Vishal Nagar Society, Adajan Gam, Adajan, Surat, Gujarat 395009, India",
+    timetable: [
+      { bus_number: "147J", destination: "Lambe Hanuman Temple" },
+      { bus_number: "147J", destination: "Green City Bhatha" },
+    ],
   },
   {
     name: "Shakti Niketan Mandir",
@@ -174,6 +318,7 @@ array: [
     lng: 72.807105,
     details:
       "Shakti Niketan Mandir, Jai Ambe Society, Adajan, Surat, Gujarat 395009, India",
+    timetable: [],
   },
   {
     name: "Spipa (Surat)",
@@ -181,6 +326,10 @@ array: [
     lng: 72.793629,
     details:
       "Spipa (Surat), Shri Nath Society ,Adajan Gam, Adajan Gam, Adajan, Surat, Gujarat 395009, India",
+    timetable: [
+      { bus_number: "117", destination: "Suman Jyot EWS" },
+      { bus_number: "117P", destination: "Railway Station Terminal" },
+    ],
   },
   {
     name: "Shahi Masjid Adajan Gam",
@@ -188,6 +337,10 @@ array: [
     lng: 72.794209,
     details:
       "Shahi Masjid Adajan Gam, Adajan Gam, Adajan, Surat, Gujarat 395009, India",
+    timetable: [
+      { bus_number: "117", destination: "Suman Jyot EWS" },
+      { bus_number: "117P", destination: "Railway Station Terminal" },
+    ],
   },
   {
     name: "Van Bhavan",
@@ -195,6 +348,10 @@ array: [
     lng: 72.793168,
     details:
       "Van Bhavan, Shri Nath Society ,Adajan Gam, Adajan Gam, Adajan, Surat, Gujarat 395009, India",
+    timetable: [
+      { bus_number: "107", destination: "Vivekanand College" },
+      { bus_number: "107J", destination: "Railway Station Terminal" },
+    ],
   },
   {
     name: "Shanti Kunj",
@@ -202,6 +359,10 @@ array: [
     lng: 72.790486,
     details:
       "Shanti Kunj, Hariom Nagar Society,Adajan Gam, Adajan Gam, Adajan, Surat, Gujarat 395009, India",
+    timetable: [
+      { bus_number: "107", destination: "Vivekanand College" },
+      { bus_number: "107J", destination: "Railway Station Terminal" },
+    ],
   },
   {
     name: "Green Avenue",
@@ -209,12 +370,18 @@ array: [
     lng: 72.786183,
     details:
       "Green Avenue, TGB, Adajan Gam, Adajan, Surat, Gujarat 395009, India",
+    timetable: [
+      { bus_number: "107J", destination: "Vivekanand College" },
+      { bus_number: "107J", destination: "Railway Station Terminal" },
+      { bus_number: "716", destination: "Gail India Ltd VIP Road Vesu" },
+    ],
   },
   {
     name: "Pal Gaam",
     lat: 21.193525,
     lng: 72.779896,
     details: "Pal Gaam, Adajan Gam, Surat, Gujarat 395009, India",
+    timetable: [],
   },
   {
     name: "Trinity Business Park",
@@ -567,13 +734,6 @@ array: [
     name: "Sahara Darwaja",
     lat: 21.194515,
     lng: 72.84457,
-    details:
-      "Sahara Darwaja, Sahara Darwaja, New Textile Market, Surat, Gujarat 395101, India",
-  },
-  {
-    name: "Sahara Darwaja",
-    lat: 21.194715,
-    lng: 72.84354,
     details:
       "Sahara Darwaja, Sahara Darwaja, New Textile Market, Surat, Gujarat 395101, India",
   },
