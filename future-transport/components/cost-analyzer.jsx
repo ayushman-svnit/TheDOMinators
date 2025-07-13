@@ -1,12 +1,18 @@
-"use client"
+"use client";
 
-import { useState, useMemo } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { Checkbox } from "@/components/ui/checkbox"
-import { indianCities, getDistance } from "@/utils/indian-cities-data"
+import { useState, useMemo } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
+import { indianCities, getDistance } from "@/utils/indian-cities-data";
 import {
   Zap,
   Rocket,
@@ -19,7 +25,7 @@ import {
   TrendingUp,
   MapPin,
   Route,
-} from "lucide-react"
+} from "lucide-react";
 
 const transportOptions = [
   {
@@ -74,49 +80,52 @@ const transportOptions = [
     availability: 85,
     emissions: 1,
   },
-]
+];
 
 function PieChart({ data, size = 200 }) {
-  const total = data.reduce((sum, item) => sum + item.value, 0)
-  let currentAngle = 0
+  const total = data.reduce((sum, item) => sum + item.value, 0);
+  let currentAngle = 0;
 
   if (total === 0) {
     return (
-      <div className="flex items-center justify-center" style={{ width: size, height: size }}>
+      <div
+        className="flex items-center justify-center"
+        style={{ width: size, height: size }}
+      >
         <p className="text-gray-400">No data to display</p>
       </div>
-    )
+    );
   }
 
   const slices = data.map((item, index) => {
-    const sliceAngle = (item.value / total) * 360
-    const startAngle = currentAngle
-    const endAngle = currentAngle + sliceAngle
-    currentAngle += sliceAngle
+    const sliceAngle = (item.value / total) * 360;
+    const startAngle = currentAngle;
+    const endAngle = currentAngle + sliceAngle;
+    currentAngle += sliceAngle;
 
-    const startAngleRad = (startAngle * Math.PI) / 180
-    const endAngleRad = (endAngle * Math.PI) / 180
+    const startAngleRad = (startAngle * Math.PI) / 180;
+    const endAngleRad = (endAngle * Math.PI) / 180;
 
-    const largeArcFlag = sliceAngle > 180 ? 1 : 0
+    const largeArcFlag = sliceAngle > 180 ? 1 : 0;
 
-    const x1 = size / 2 + (size / 2 - 10) * Math.cos(startAngleRad)
-    const y1 = size / 2 + (size / 2 - 10) * Math.sin(startAngleRad)
-    const x2 = size / 2 + (size / 2 - 10) * Math.cos(endAngleRad)
-    const y2 = size / 2 + (size / 2 - 10) * Math.sin(endAngleRad)
+    const x1 = size / 2 + (size / 2 - 10) * Math.cos(startAngleRad);
+    const y1 = size / 2 + (size / 2 - 10) * Math.sin(startAngleRad);
+    const x2 = size / 2 + (size / 2 - 10) * Math.cos(endAngleRad);
+    const y2 = size / 2 + (size / 2 - 10) * Math.sin(endAngleRad);
 
     const pathData = [
       `M ${size / 2} ${size / 2}`,
       `L ${x1} ${y1}`,
       `A ${size / 2 - 10} ${size / 2 - 10} 0 ${largeArcFlag} 1 ${x2} ${y2}`,
       "Z",
-    ].join(" ")
+    ].join(" ");
 
     return {
       ...item,
       pathData,
       percentage: ((item.value / total) * 100).toFixed(1),
-    }
-  })
+    };
+  });
 
   return (
     <div className="flex items-center gap-6">
@@ -135,41 +144,49 @@ function PieChart({ data, size = 200 }) {
       <div className="space-y-2">
         {slices.map((slice, index) => (
           <div key={index} className="flex items-center gap-2 text-sm">
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: slice.color }} />
+            <div
+              className="w-3 h-3 rounded-full"
+              style={{ backgroundColor: slice.color }}
+            />
             <span className="text-white">{slice.name}</span>
             <span className="text-gray-400">({slice.percentage}%)</span>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export function CostAnalyzer() {
-  const [selectedOptions, setSelectedOptions] = useState(["hyperloop", "robotaxi", "aerotaxi"])
-  const [sourceCity, setSourceCity] = useState("")
-  const [destinationCity, setDestinationCity] = useState("")
-  const [passengers, setPassengers] = useState("1")
+  const [selectedOptions, setSelectedOptions] = useState([
+    "hyperloop",
+    "robotaxi",
+    "aerotaxi",
+  ]);
+  const [sourceCity, setSourceCity] = useState("");
+  const [destinationCity, setDestinationCity] = useState("");
+  const [passengers, setPassengers] = useState("1");
 
   const distance = useMemo(() => {
     if (sourceCity && destinationCity) {
-      return getDistance(sourceCity, destinationCity)
+      return getDistance(sourceCity, destinationCity);
     }
-    return 0
-  }, [sourceCity, destinationCity])
+    return 0;
+  }, [sourceCity, destinationCity]);
 
   const analysisData = useMemo(() => {
-    if (distance === 0) return []
+    if (distance === 0) return [];
 
-    const pax = Number.parseInt(passengers) || 1
+    const pax = Number.parseInt(passengers) || 1;
 
     return transportOptions
       .filter((option) => selectedOptions.includes(option.id))
       .map((option) => {
-        const totalCost = Math.round(option.baseCost * distance * pax * 100) / 100
-        const totalTime = Math.round(option.baseTime * distance * 10) / 10
-        const totalEnergy = Math.round(option.energyPerKm * distance * 10) / 10
-        const costPer100km = Math.round(option.baseCost * 100 * 100) / 100
+        const totalCost =
+          Math.round(option.baseCost * distance * pax * 100) / 100;
+        const totalTime = Math.round(option.baseTime * distance * 10) / 10;
+        const totalEnergy = Math.round(option.energyPerKm * distance * 10) / 10;
+        const costPer100km = Math.round(option.baseCost * 100 * 100) / 100;
 
         return {
           ...option,
@@ -177,25 +194,33 @@ export function CostAnalyzer() {
           totalTime,
           totalEnergy,
           costPer100km,
-          costEfficiency: totalCost > 0 ? Math.round((1 / totalCost) * 1000) : 0,
+          costEfficiency:
+            totalCost > 0 ? Math.round((1 / totalCost) * 1000) : 0,
           timeEfficiency: totalTime > 0 ? Math.round((1 / totalTime) * 100) : 0,
-        }
+        };
       })
-      .sort((a, b) => a.totalCost - b.totalCost)
-  }, [selectedOptions, distance, passengers])
+      .sort((a, b) => a.totalCost - b.totalCost);
+  }, [selectedOptions, distance, passengers]);
 
   const toggleOption = (optionId) => {
-    setSelectedOptions((prev) => (prev.includes(optionId) ? prev.filter((id) => id !== optionId) : [...prev, optionId]))
-  }
+    setSelectedOptions((prev) =>
+      prev.includes(optionId)
+        ? prev.filter((id) => id !== optionId)
+        : [...prev, optionId]
+    );
+  };
 
   const pieChartData = analysisData.map((item) => ({
     name: item.name,
     value: item.totalCost,
     color: item.color,
-  }))
+  }));
 
-  const bestOption = analysisData[0]
-  const totalCostAll = analysisData.reduce((sum, item) => sum + item.totalCost, 0)
+  const bestOption = analysisData[0];
+  const totalCostAll = analysisData.reduce(
+    (sum, item) => sum + item.totalCost,
+    0
+  );
 
   return (
     <div className="space-y-6">
@@ -210,7 +235,9 @@ export function CostAnalyzer() {
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="text-gray-400 text-sm mb-2 block">Source City</label>
+              <label className="text-gray-400 text-sm mb-2 block">
+                Source City
+              </label>
               <Select value={sourceCity} onValueChange={setSourceCity}>
                 <SelectTrigger className="bg-black/20 border-blue-500/30 text-white">
                   <SelectValue placeholder="Select source city" />
@@ -225,8 +252,13 @@ export function CostAnalyzer() {
               </Select>
             </div>
             <div>
-              <label className="text-gray-400 text-sm mb-2 block">Destination City</label>
-              <Select value={destinationCity} onValueChange={setDestinationCity}>
+              <label className="text-gray-400 text-sm mb-2 block">
+                Destination City
+              </label>
+              <Select
+                value={destinationCity}
+                onValueChange={setDestinationCity}
+              >
                 <SelectTrigger className="bg-black/20 border-blue-500/30 text-white">
                   <SelectValue placeholder="Select destination city" />
                 </SelectTrigger>
@@ -240,7 +272,9 @@ export function CostAnalyzer() {
               </Select>
             </div>
             <div>
-              <label className="text-gray-400 text-sm mb-2 block">Passengers</label>
+              <label className="text-gray-400 text-sm mb-2 block">
+                Passengers
+              </label>
               <Input
                 type="number"
                 value={passengers}
@@ -262,9 +296,13 @@ export function CostAnalyzer() {
                   <p className="font-semibold">
                     {sourceCity} → {destinationCity}
                   </p>
-                  <p className="text-gray-400 text-sm">Distance: {distance.toLocaleString()} km</p>
+                  <p className="text-gray-400 text-sm">
+                    Distance: {distance.toLocaleString()} km
+                  </p>
                 </div>
-                <Badge className="bg-green-500/20 text-green-400">Route Confirmed</Badge>
+                <Badge className="bg-green-500/20 text-green-400">
+                  Route Confirmed
+                </Badge>
               </div>
             </div>
           )}
@@ -274,13 +312,15 @@ export function CostAnalyzer() {
       {/* Transport Mode Selection */}
       <Card className="bg-black/20 border-blue-500/30">
         <CardHeader>
-          <CardTitle className="text-white">Select Transport Modes for Analysis</CardTitle>
+          <CardTitle className="text-white">
+            Select Transport Modes for Analysis
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {transportOptions.map((option) => {
-              const IconComponent = option.icon
-              const isSelected = selectedOptions.includes(option.id)
+              const IconComponent = option.icon;
+              const isSelected = selectedOptions.includes(option.id);
 
               return (
                 <div
@@ -293,7 +333,10 @@ export function CostAnalyzer() {
                   onClick={() => toggleOption(option.id)}
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <Checkbox checked={isSelected} onChange={() => toggleOption(option.id)} />
+                    <Checkbox
+                      checked={isSelected}
+                      onChange={() => toggleOption(option.id)}
+                    />
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center"
                       style={{ backgroundColor: option.color }}
@@ -301,12 +344,16 @@ export function CostAnalyzer() {
                       <IconComponent className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold text-sm">{option.name}</h4>
-                      <p className="text-gray-400 text-xs">{option.description}</p>
+                      <h4 className="text-white font-semibold text-sm">
+                        {option.name}
+                      </h4>
+                      <p className="text-gray-400 text-xs">
+                        {option.description}
+                      </p>
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </CardContent>
@@ -325,28 +372,38 @@ export function CostAnalyzer() {
             <CardContent>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-white font-semibold mb-4">Cost Breakdown</h4>
+                  <h4 className="text-white font-semibold mb-4">
+                    Cost Breakdown
+                  </h4>
                   <PieChart data={pieChartData} size={250} />
                 </div>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 bg-gray-800/50 rounded-lg">
-                      <div className="text-2xl font-bold text-green-400">₹{(totalCostAll * 83).toFixed(0)}</div>
+                      <div className="text-2xl font-bold text-green-400">
+                        ₹{(totalCostAll * 83).toFixed(0)}
+                      </div>
                       <p className="text-gray-400 text-sm">Total Cost (INR)</p>
                     </div>
                     <div className="text-center p-4 bg-gray-800/50 rounded-lg">
-                      <div className="text-2xl font-bold text-blue-400">{distance} km</div>
+                      <div className="text-2xl font-bold text-blue-400">
+                        {distance} km
+                      </div>
                       <p className="text-gray-400 text-sm">Journey Distance</p>
                     </div>
                   </div>
                   {bestOption && (
                     <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-                      <h5 className="text-green-400 font-semibold mb-2">💡 Best Value Option</h5>
+                      <h5 className="text-green-400 font-semibold mb-2">
+                        💡 Best Value Option
+                      </h5>
                       <p className="text-white">{bestOption.name}</p>
                       <p className="text-gray-400 text-sm">
                         ₹{(bestOption.totalCost * 83).toFixed(0)} •{" "}
                         {bestOption.totalTime > 60
-                          ? `${Math.floor(bestOption.totalTime / 60)}h ${Math.round(bestOption.totalTime % 60)}m`
+                          ? `${Math.floor(
+                              bestOption.totalTime / 60
+                            )}h ${Math.round(bestOption.totalTime % 60)}m`
                           : `${Math.round(bestOption.totalTime)} min`}{" "}
                         • {bestOption.totalEnergy} kWh
                       </p>
@@ -360,18 +417,22 @@ export function CostAnalyzer() {
           {/* Detailed Analysis */}
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {analysisData.map((option, index) => {
-              const IconComponent = option.icon
-              const isRecommended = index === 0
-              const costInINR = option.totalCost * 83 // Convert USD to INR
+              const IconComponent = option.icon;
+              const isRecommended = index === 0;
+              const costInINR = option.totalCost * 83; // Convert USD to INR
               const timeDisplay =
                 option.totalTime > 60
-                  ? `${Math.floor(option.totalTime / 60)}h ${Math.round(option.totalTime % 60)}m`
-                  : `${Math.round(option.totalTime)} min`
+                  ? `${Math.floor(option.totalTime / 60)}h ${Math.round(
+                      option.totalTime % 60
+                    )}m`
+                  : `${Math.round(option.totalTime)} min`;
 
               return (
                 <Card
                   key={option.id}
-                  className={`bg-black/20 border-blue-500/30 ${isRecommended ? "ring-2 ring-green-500" : ""}`}
+                  className={`bg-black/20 border-blue-500/30 ${
+                    isRecommended ? "ring-2 ring-green-500" : ""
+                  }`}
                 >
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
@@ -383,14 +444,20 @@ export function CostAnalyzer() {
                           <IconComponent className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <CardTitle className="text-white text-lg">{option.name}</CardTitle>
+                          <CardTitle className="text-white text-lg">
+                            {option.name}
+                          </CardTitle>
                           {isRecommended && (
-                            <Badge className="bg-green-500/20 text-green-400 text-xs">Most Cost-Effective</Badge>
+                            <Badge className="bg-green-500/20 text-green-400 text-xs">
+                              Most Cost-Effective
+                            </Badge>
                           )}
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-green-400">₹{costInINR.toFixed(0)}</div>
+                        <div className="text-2xl font-bold text-green-400">
+                          ₹{costInINR.toFixed(0)}
+                        </div>
                         <p className="text-gray-400 text-xs">Total Cost</p>
                       </div>
                     </div>
@@ -401,21 +468,27 @@ export function CostAnalyzer() {
                         <Clock className="w-4 h-4 text-blue-400" />
                         <div>
                           <p className="text-gray-400">Travel Time</p>
-                          <p className="text-white font-semibold">{timeDisplay}</p>
+                          <p className="text-white font-semibold">
+                            {timeDisplay}
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
                         <Battery className="w-4 h-4 text-yellow-400" />
                         <div>
                           <p className="text-gray-400">Energy Use</p>
-                          <p className="text-white font-semibold">{option.totalEnergy} kWh</p>
+                          <p className="text-white font-semibold">
+                            {option.totalEnergy} kWh
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
                         <DollarSign className="w-4 h-4 text-green-400" />
                         <div>
                           <p className="text-gray-400">Cost/100km</p>
-                          <p className="text-white font-semibold">₹{(option.costPer100km * 83).toFixed(0)}</p>
+                          <p className="text-white font-semibold">
+                            ₹{(option.costPer100km * 83).toFixed(0)}
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
@@ -428,11 +501,15 @@ export function CostAnalyzer() {
                               option.riskFactor <= 2
                                 ? "bg-green-500/20 text-green-400"
                                 : option.riskFactor <= 5
-                                  ? "bg-yellow-500/20 text-yellow-400"
-                                  : "bg-red-500/20 text-red-400"
+                                ? "bg-yellow-500/20 text-yellow-400"
+                                : "bg-red-500/20 text-red-400"
                             }`}
                           >
-                            {option.riskFactor <= 2 ? "Low" : option.riskFactor <= 5 ? "Medium" : "High"}
+                            {option.riskFactor <= 2
+                              ? "Low"
+                              : option.riskFactor <= 5
+                              ? "Medium"
+                              : "High"}
                           </Badge>
                         </div>
                       </div>
@@ -441,11 +518,19 @@ export function CostAnalyzer() {
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-400">Availability:</span>
-                        <span className="text-white">{option.availability}%</span>
+                        <span className="text-white">
+                          {option.availability}%
+                        </span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-400">CO₂ Emissions:</span>
-                        <span className={`${option.emissions === 0 ? "text-green-400" : "text-yellow-400"}`}>
+                        <span
+                          className={`${
+                            option.emissions === 0
+                              ? "text-green-400"
+                              : "text-yellow-400"
+                          }`}
+                        >
                           {option.emissions}g/km
                         </span>
                       </div>
@@ -455,22 +540,22 @@ export function CostAnalyzer() {
                           {option.id === "hyperloop"
                             ? "1200"
                             : option.id === "aerotaxi"
-                              ? "250"
-                              : option.id === "robotaxi"
-                                ? "80"
-                                : "120"}{" "}
+                            ? "250"
+                            : option.id === "robotaxi"
+                            ? "80"
+                            : "120"}{" "}
                           km/h
                         </span>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              )
+              );
             })}
           </div>
 
           {/* Comparison Summary */}
-          <Card className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border-blue-500/30 backdrop-blur-sm">
+          <Card className="bg-gradient-to-r from-blue-40 to-purple-900/20 border-blue-500/30 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-white flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-purple-400" />
@@ -481,22 +566,43 @@ export function CostAnalyzer() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-2xl font-bold text-green-400 mb-1">
-                    ₹{(Math.min(...analysisData.map((d) => d.totalCost)) * 83).toFixed(0)}
+                    ₹
+                    {(
+                      Math.min(...analysisData.map((d) => d.totalCost)) * 83
+                    ).toFixed(0)}
                   </div>
                   <p className="text-gray-400 text-sm">Cheapest Option</p>
                   <p className="text-white text-xs mt-1">
-                    {analysisData.find((d) => d.totalCost === Math.min(...analysisData.map((d) => d.totalCost)))?.name}
+                    {
+                      analysisData.find(
+                        (d) =>
+                          d.totalCost ===
+                          Math.min(...analysisData.map((d) => d.totalCost))
+                      )?.name
+                    }
                   </p>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-blue-400 mb-1">
                     {Math.min(...analysisData.map((d) => d.totalTime)) > 60
-                      ? `${Math.floor(Math.min(...analysisData.map((d) => d.totalTime)) / 60)}h ${Math.round(Math.min(...analysisData.map((d) => d.totalTime)) % 60)}m`
-                      : `${Math.round(Math.min(...analysisData.map((d) => d.totalTime)))} min`}
+                      ? `${Math.floor(
+                          Math.min(...analysisData.map((d) => d.totalTime)) / 60
+                        )}h ${Math.round(
+                          Math.min(...analysisData.map((d) => d.totalTime)) % 60
+                        )}m`
+                      : `${Math.round(
+                          Math.min(...analysisData.map((d) => d.totalTime))
+                        )} min`}
                   </div>
                   <p className="text-gray-400 text-sm">Fastest Option</p>
                   <p className="text-white text-xs mt-1">
-                    {analysisData.find((d) => d.totalTime === Math.min(...analysisData.map((d) => d.totalTime)))?.name}
+                    {
+                      analysisData.find(
+                        (d) =>
+                          d.totalTime ===
+                          Math.min(...analysisData.map((d) => d.totalTime))
+                      )?.name
+                    }
                   </p>
                 </div>
                 <div>
@@ -506,8 +612,11 @@ export function CostAnalyzer() {
                   <p className="text-gray-400 text-sm">Most Efficient</p>
                   <p className="text-white text-xs mt-1">
                     {
-                      analysisData.find((d) => d.totalEnergy === Math.min(...analysisData.map((d) => d.totalEnergy)))
-                        ?.name
+                      analysisData.find(
+                        (d) =>
+                          d.totalEnergy ===
+                          Math.min(...analysisData.map((d) => d.totalEnergy))
+                      )?.name
                     }
                   </p>
                 </div>
@@ -518,8 +627,11 @@ export function CostAnalyzer() {
                   <p className="text-gray-400 text-sm">Most Available</p>
                   <p className="text-white text-xs mt-1">
                     {
-                      analysisData.find((d) => d.availability === Math.max(...analysisData.map((d) => d.availability)))
-                        ?.name
+                      analysisData.find(
+                        (d) =>
+                          d.availability ===
+                          Math.max(...analysisData.map((d) => d.availability))
+                      )?.name
                     }
                   </p>
                 </div>
@@ -534,11 +646,15 @@ export function CostAnalyzer() {
         <Card className="bg-black/20 border-blue-500/30">
           <CardContent className="p-8 text-center">
             <MapPin className="w-16 h-16 mx-auto text-gray-400 mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">Select Your Journey Route</h3>
-            <p className="text-gray-400">Choose source and destination cities to see detailed cost analysis</p>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              Select Your Journey Route
+            </h3>
+            <p className="text-gray-400">
+              Choose source and destination cities to see detailed cost analysis
+            </p>
           </CardContent>
         </Card>
       )}
     </div>
-  )
+  );
 }

@@ -93,7 +93,7 @@ export function TransportSimulator({ city, time, destination, transportModes, ca
         <Card className="bg-black/20 border-blue-500/30">
           <CardContent className="p-8">
             <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center animate-pulse">
+              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center animate-pulse text-white">
                 <Zap className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white">AI Processing Your Journey</h3>
@@ -109,7 +109,7 @@ export function TransportSimulator({ city, time, destination, transportModes, ca
   return (
     <div className="space-y-8">
       {/* Journey Overview */}
-      <Card className="bg-gradient-to-r from-blue-900/20 to-cyan-900/20 border-blue-500/30">
+      <Card className="bg-gradient-to-br from-blue-40 to-cyan-900/20 border-blue-500/30">
         <CardHeader>
           <CardTitle className="text-white flex items-center gap-2">
             <MapPin className="w-5 h-5" />

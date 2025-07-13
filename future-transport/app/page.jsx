@@ -1,19 +1,31 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { TransportSimulator } from "@/components/transport-simulator"
-import { CityDashboard } from "@/components/city-dashboard"
-import { FlightPlanner } from "@/components/flight-planner"
-import { CostAnalyzer } from "@/components/cost-analyzer"
-import { indianCities, getDistance } from "@/utils/indian-cities-data"
-import { Zap, Car, Plane, Rocket } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TransportSimulator } from "@/components/transport-simulator";
+import { CityDashboard } from "@/components/city-dashboard";
+import { FlightPlanner } from "@/components/flight-planner";
+import { CostAnalyzer } from "@/components/cost-analyzer";
+import { indianCities, getDistance } from "@/utils/indian-cities-data";
+import { Zap, Car, Plane, Rocket } from "lucide-react";
+import IframeToggle from "@/components/iframe-toggle";
 
-const timeSlots = ["Morning Rush (7-9 AM)", "Midday (12-2 PM)", "Evening Peak (5-7 PM)", "Night Mode (10 PM-12 AM)"]
+const timeSlots = [
+  "Morning Rush (7-9 AM)",
+  "Midday (12-2 PM)",
+  "Evening Peak (5-7 PM)",
+  "Night Mode (10 PM-12 AM)",
+];
 
 const transportModes = [
   {
@@ -25,6 +37,9 @@ const transportModes = [
     availability: "96%",
     cost: "₹12/km",
     color: "from-blue-600 to-purple-600",
+    showIframe: true, // <- just a flag
+    iframeUrl:
+      "https://sketchfab.com/models/67c06cac80ea4ebd8769b248ce347950/embed",
   },
   {
     id: "robotaxi",
@@ -35,6 +50,9 @@ const transportModes = [
     availability: "99%",
     cost: "₹7/km",
     color: "from-blue-500 to-cyan-500",
+    showIframe: true, // <- just a flag
+    iframeUrl:
+      "https://sketchfab.com/models/98fa02daf88744a3826ab48adec54603/embed",
   },
   {
     id: "aerotaxi",
@@ -45,6 +63,9 @@ const transportModes = [
     availability: "89%",
     cost: "₹23/km",
     color: "from-green-500 to-emerald-500",
+    showIframe: true, // <- just a flag
+    iframeUrl:
+      "https://sketchfab.com/models/5c48a7cdb7f943f48a18cf4ad30fd525/embed",
   },
   {
     id: "drone",
@@ -55,24 +76,27 @@ const transportModes = [
     availability: "85%",
     cost: "₹15/km",
     color: "from-orange-500 to-red-500",
+    showIframe: true, // <- just a flag
+    iframeUrl:
+      "https://sketchfab.com/models/502eb2c24a8c4908ba602ed1d7bbc430/embed",
   },
-]
+];
 
 export default function SmartMobilityForecast() {
-  const [selectedCity, setSelectedCity] = useState("")
-  const [selectedTime, setSelectedTime] = useState("")
-  const [destination, setDestination] = useState("")
-  const [activeTab, setActiveTab] = useState("forecast")
-  const [simulationActive, setSimulationActive] = useState(false)
-  const [calculatedDistance, setCalculatedDistance] = useState(0)
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
+  const [destination, setDestination] = useState("");
+  const [activeTab, setActiveTab] = useState("forecast");
+  const [simulationActive, setSimulationActive] = useState(false);
+  const [calculatedDistance, setCalculatedDistance] = useState(0);
 
   const handleSimulate = () => {
     if (selectedCity && selectedTime && destination) {
-      const distance = getDistance(selectedCity, destination)
-      setCalculatedDistance(distance)
-      setSimulationActive(true)
+      const distance = getDistance(selectedCity, destination);
+      setCalculatedDistance(distance);
+      setSimulationActive(true);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
@@ -85,7 +109,8 @@ export default function SmartMobilityForecast() {
               Smart Mobility 2035
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              AI-Powered Transport Forecast • Experience Future Travel Across India
+              AI-Powered Transport Forecast • Experience Future Travel Across
+              India
             </p>
 
             {/* Input Controls */}
@@ -143,11 +168,17 @@ export default function SmartMobilityForecast() {
             {selectedCity && destination && selectedCity !== destination && (
               <div className="mt-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg max-w-md mx-auto">
                 <p className="text-white text-sm">
-                  <span className="text-blue-400 font-semibold">{selectedCity}</span> →{" "}
-                  <span className="text-blue-400 font-semibold">{destination}</span>
+                  <span className="text-blue-400 font-semibold">
+                    {selectedCity}
+                  </span>{" "}
+                  →{" "}
+                  <span className="text-blue-400 font-semibold">
+                    {destination}
+                  </span>
                 </p>
                 <p className="text-gray-400 text-xs">
-                  Distance: {getDistance(selectedCity, destination).toLocaleString()} km
+                  Distance:{" "}
+                  {getDistance(selectedCity, destination).toLocaleString()} km
                 </p>
               </div>
             )}
@@ -159,16 +190,28 @@ export default function SmartMobilityForecast() {
       <div className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-4 bg-black/20 border border-blue-500/30">
-            <TabsTrigger value="forecast" className="data-[state=active]:bg-blue-600">
+            <TabsTrigger
+              value="forecast"
+              className="data-[state=active]:bg-blue-600 text-white"
+            >
               2035 Forecast
             </TabsTrigger>
-            <TabsTrigger value="dashboard" className="data-[state=active]:bg-blue-600">
+            <TabsTrigger
+              value="dashboard"
+              className="data-[state=active]:bg-blue-600 text-white"
+            >
               City Dashboard
             </TabsTrigger>
-            <TabsTrigger value="flight" className="data-[state=active]:bg-blue-600">
+            <TabsTrigger
+              value="flight"
+              className="data-[state=active]:bg-blue-600 text-white"
+            >
               Flight Planner
             </TabsTrigger>
-            <TabsTrigger value="analyzer" className="data-[state=active]:bg-blue-600">
+            <TabsTrigger
+              value="analyzer"
+              className="data-[state=active]:bg-blue-600 text-white"
+            >
               Cost Analyzer
             </TabsTrigger>
           </TabsList>
@@ -185,7 +228,7 @@ export default function SmartMobilityForecast() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {transportModes.map((mode) => {
-                  const IconComponent = mode.icon
+                  const IconComponent = mode.icon;
                   return (
                     <Card
                       key={mode.id}
@@ -197,7 +240,9 @@ export default function SmartMobilityForecast() {
                         >
                           <IconComponent className="w-6 h-6 text-white" />
                         </div>
-                        <CardTitle className="text-white">{mode.name}</CardTitle>
+                        <CardTitle className="text-white">
+                          {mode.name}
+                        </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-3">
                         <div className="flex justify-between text-sm">
@@ -206,21 +251,32 @@ export default function SmartMobilityForecast() {
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-400">Emission:</span>
-                          <span className="text-green-400">{mode.emission}</span>
+                          <span className="text-green-400">
+                            {mode.emission}
+                          </span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-400">Available:</span>
-                          <Badge variant="secondary" className="bg-green-500/20 text-green-400">
+                          <Badge
+                            variant="secondary"
+                            className="bg-green-500/20 text-green-400"
+                          >
                             {mode.availability}
                           </Badge>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-400">Cost:</span>
-                          <span className="text-cyan-400 font-semibold">{mode.cost}</span>
+                          <span className="text-cyan-400 font-semibold">
+                            {mode.cost}
+                          </span>
                         </div>
+
+                        {mode.showIframe && (
+                          <IframeToggle iframeUrl={mode.iframeUrl} />
+                        )}
                       </CardContent>
                     </Card>
-                  )
+                  );
                 })}
               </div>
             )}
@@ -240,5 +296,5 @@ export default function SmartMobilityForecast() {
         </Tabs>
       </div>
     </div>
-  )
+  );
 }

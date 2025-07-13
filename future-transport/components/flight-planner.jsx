@@ -371,7 +371,7 @@ export function FlightPlanner() {
 
       {/* Flight Plan Results */}
       {flightPlan && (
-        <Card className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border-blue-500/30">
+        <Card className="bg-gradient-to-r from-green-40 to-blue-900/20 border-blue-500/30">
           <CardHeader>
             <CardTitle className="text-white flex items-center gap-2">
               <Clock className="w-5 h-5 text-green-400" />
