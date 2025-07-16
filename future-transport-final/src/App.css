@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
