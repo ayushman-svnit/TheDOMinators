@@ -1,0 +1,183 @@
+/* Sidebar.css */
+
+.sidebar {
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  scroll-behavior: smooth;
+}
+
+/* Header section: search bar + button */
+.sidebar-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sidebar input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.sidebar input[type="text"]:focus {
+  border-color: #0077ff;
+  outline: none;
+}
+
+.sidebar .add-button {
+  padding: 10px 14px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.sidebar .add-button:hover {
+  background-color: #0056b3;
+}
+
+/* Search animation */
+.stop-list {
+  animation: fadeIn 0.3s ease-in-out;
+  transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.stop {
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.stop:hover {
+  transform: scale(1.01);
+}
+
+.stop h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #333;
+}
+
+.stop p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #666;
+}
+
+.stop button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.stop button:hover {
+  opacity: 0.85;
+}
+
+.stop button:nth-child(3) {
+  background-color: #28a745;
+  color: white;
+}
+.stop button:nth-child(3):hover {
+  background-color: blue;
+  color: white;
+}
+
+.stop button:nth-child(4) {
+  background-color: #dc3545;
+  color: white;
+}
+.stop button:nth-child(4):hover {
+  background-color: blue;
+  color: white;
+}
+
+/* Scrollbar animation */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    max-width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sidebar-header {
+    flex-direction: column;
+  }
+
+  .sidebar .add-button {
+    width: 100%;
+  }
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;               /* Full height */
+  width: 30vw;                /* Adjust as needed */
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 1000;
+}
+.sidebar {
+  overflow-y: auto;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE 10+ */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;                  /* Chrome, Safari, Edge */
+}
