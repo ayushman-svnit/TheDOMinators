@@ -1,0 +1,47 @@
+.ride-history-card {
+  background-color: #f8fafc;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.ride-history-card:hover {
+  transform: scale(1.02);
+}
+
+.ride-info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.ride-info p {
+  margin: 4px 0;
+  color: #334155;
+}
+
+.booked-users, .driver-info {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.booked-users h4, .driver-info h4 {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.status-completed {
+  color: green;
+  font-weight: bold;
+}
+
+.status-cancelled {
+  color: red;
+  font-weight: bold;
+}

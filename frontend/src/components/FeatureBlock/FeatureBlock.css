@@ -1,0 +1,161 @@
+.feature-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  
+}
+
+.feature-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.feature-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.feature-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.feature-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.feature-button {
+  background: var(--primary);
+  color: white;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.feature-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+}
+
+.feature-image-container {
+  flex: 1;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 500px;
+  transition: var(--transition);
+}
+
+.feature-image-container:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.feature-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: var(--transition);
+}
+
+.feature-image-container:hover .feature-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.3) 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feature-block {
+    flex-direction: column;
+    margin-bottom: 80px;
+  }
+  
+  .feature-image-container {
+    display: none;
+  }
+  
+  .feature-content {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .feature-content h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Light mode (default) */
+.features-section {
+  background: var(--card-bg); /* white */
+  color: var(--text);         /* black */
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Example: Make some text white in light mode */
+.features-section .feature-title-white {
+  color: #fff;
+}
+
+/* Example: Make some text blue in light mode */
+.features-section .feature-title-blue {
+  color: var(--primary);
+}
+
+/* Dark mode */
+[data-theme="dark"] .features-section {
+  background: #000;           /* black */
+  color: #f0f0f0;             /* white */
+}
+
+/* White text in dark mode */
+[data-theme="dark"] .features-section .feature-title-white {
+  color: #fff;
+}
+
+/* Blue text in dark mode */
+[data-theme="dark"] .features-section .feature-title-blue {
+  color: var(--primary);
+}
+
+.feature-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
