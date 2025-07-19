@@ -1,19 +1,3 @@
-
-# Ignore node_modules in any subdirectory
-**/node_modules/
-
-# Ignore .env files in any subdirectory
-**/.env
-
-# Python virtual environment
-.venv/
-
-**/__pycache__
-
-**/chroma_db
-
-**/Announcements
-
 # Ignore root-level node_modules
 /node_modules/
 
@@ -24,4 +8,3 @@
 # Optional: Also ignore logs or OS files
 *.log
 .DS_Store
-
