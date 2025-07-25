@@ -1,12 +1,15 @@
+
+
 // import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+// import { useNavigate, useParams } from 'react-router-dom';
 // import axios from 'axios';
 // import './ChatList.css';
 
-// const ChatList = ({ setCurrentChat }) => {
+// const ChatList = () => {
 //   const [chats, setChats] = useState([]);
 //   const [loading, setLoading] = useState(true);
 //   const navigate = useNavigate();
+//   const { chatId: currentChatId } = useParams();
 
 //   useEffect(() => {
 //     const fetchChats = async () => {
@@ -41,7 +44,7 @@
 //           {chats.map(chat => (
 //             <li 
 //               key={chat._id} 
-//               className="chat-item"
+//               className={`chat-item ${currentChatId === chat._id ? 'active' : ''}`}
 //               onClick={() => handleChatClick(chat._id)}
 //             >
 //               <div className="chat-header">
@@ -66,11 +69,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { FiMessageSquare } from 'react-icons/fi';
 import './ChatList.css';
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const { chatId: currentChatId } = useParams();
 
@@ -95,30 +100,62 @@ const ChatList = () => {
     navigate(`/chats/${chatId}`);
   };
 
-  if (loading) return <div className="loading">Loading chats...</div>;
+  const filteredChats = chats.filter(chat => 
+    chat.participants.some(p => 
+      p.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
+  if (loading) {
+    return (
+      <div className="chat-list-container loading">
+        <div className="loading-spinner"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="chat-list-container">
-      <h2>Your Chats</h2>
-      {chats.length === 0 ? (
-        <p className="no-chats">No chats yet. Start a conversation after a ride!</p>
+      <div className="chat-list-header">
+        <h2>Messages</h2>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search messages"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </div>
+
+      {filteredChats.length === 0 ? (
+        <div className="no-chats">
+          <FiMessageSquare size={48} />
+          <h3>No chats yet</h3>
+          <p>Your conversations will appear here after rides</p>
+        </div>
       ) : (
         <ul className="chat-list">
-          {chats.map(chat => (
+          {filteredChats.map(chat => (
             <li 
               key={chat._id} 
               className={`chat-item ${currentChatId === chat._id ? 'active' : ''}`}
               onClick={() => handleChatClick(chat._id)}
             >
-              <div className="chat-header">
-                <h3>{chat.participants.join(', ')}</h3>
-                <span className="last-message-time">
-                  {chat.messages[0]?.timestamp || ''}
-                </span>
+              <div className="chat-avatar">
+                {chat.participants[0].charAt(0).toUpperCase()}
               </div>
-              <p className="last-message">
-                {chat.messages[0]?.text || 'No messages yet'}
-              </p>
+              <div className="chat-info">
+                <div className="chat-header">
+                  <h3>{chat.participants.join(', ')}</h3>
+                  <span className="last-message-time">
+                    {new Date(chat.updatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </span>
+                </div>
+                <p className="last-message-preview">
+                  {chat.lastMessage?.text || 'No messages yet'}
+                </p>
+              </div>
             </li>
           ))}
         </ul>

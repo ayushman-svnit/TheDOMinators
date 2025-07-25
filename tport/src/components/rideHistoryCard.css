@@ -1,283 +1,247 @@
-/* .ride-history-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.ride-history-container {
+  margin: 0 auto;
   padding: 20px;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+
+.ride-history-container h2 {
   margin-bottom: 20px;
-  transition: all 0.3s ease;
+  color: #58a6ff;
+  text-align: center;
 }
 
-.ride-history-card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.ride-history-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.ride-info h3 {
-  color: #333;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.ride-info p {
-  margin: 5px 0;
-  color: #555;
-}
-
-.status-completed {
-  color: #28a745;
-  font-weight: bold;
-}
-
-.status-cancelled {
-  color: #dc3545;
-  font-weight: bold;
-}
-
-.booked-users, .driver-info {
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
-}
-
-.booked-users h4, .driver-info h4 {
-  color: #444;
-  margin-bottom: 8px;
-}
-
-.rating-section {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f8f9fa;
-  border-radius: 8px;
-}
-
-.rating-section h3 {
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.rate-group {
-  margin-bottom: 15px;
-}
-
-.rate-group h4 {
-  color: #444;
-  margin-bottom: 10px;
-}
-
-.rate-user {
-  margin-bottom: 10px;
-}
-
-.toggle-rating-btn {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.2s;
-}
-
-.toggle-rating-btn:hover {
-  background: #0056b3;
-}
-
-.rating-panel {
-  margin-top: 10px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.stars {
-  margin-bottom: 10px;
-}
-
-.star {
-  font-size: 1.5rem;
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.2s;
-  margin-right: 5px;
-}
-
-.star.active {
-  color: #ffc107;
-}
-
-.rating-panel textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  min-height: 60px;
-  resize: vertical;
-}
-
-.submit-rating-btn {
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.submit-rating-btn:hover {
-  background: #218838;
+@media (max-width: 1024px) {
+  .ride-history-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .ride-history-card {
-    padding: 15px;
+  .ride-history-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .ride-info h3 {
-    font-size: 1.1rem;
-  }
-} */
+}
 
-.ride-history-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
+.ride-card {
+  background-color: #161b22;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #30363d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.ride-history-card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.ride-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+  border-color: #007bff;
+  transform: translate(0, -5px);
 }
 
-.ride-info h3 {
-  color: #333;
-  margin-bottom: 10px;
+.ride-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.ride-header h3 {
+  margin: 0;
   font-size: 1.2rem;
+  color: #58a6ff;
 }
 
-.ride-info p {
-  margin: 5px 0;
-  color: #555;
+.ride-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #8b949e;
 }
 
-.status-completed {
-  color: #28a745;
-  font-weight: bold;
+.status-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
-.status-cancelled {
+.status-badge.completed {
+  background-color: rgba(88, 166, 255, 0.1);
+  color: lightblue;
+  border: 1px solid #58a6ff;
+}
+
+.status-badge.cancelled {
+  background-color: rgba(220, 53, 69, 0.1);
   color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.ride-details {
+  color: #c9d1d9;
+}
+
+.ride-details p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.success-message {
+  color: green;
   font-weight: bold;
+  margin: 10px 0;
 }
 
-.booked-users, .driver-info {
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
-}
-
-.booked-users h4, .driver-info h4 {
-  color: #444;
-  margin-bottom: 8px;
-}
 
 .rating-section {
-  margin-top: 20px;
+  margin: 15px 0;
   padding: 15px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  background-color: #0d1117;
+  border-radius: 6px;
+  border: 1px solid #30363d;
 }
 
-.rating-section h3 {
-  color: #333;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
+.rating-section h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #58a6ff;
 }
 
 .rate-user {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .toggle-rating-btn {
-  background: #007bff;
-  color: white;
+  background: none;
   border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
+  color: #58a6ff;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.2s;
-  width: 100%;
+  padding: 5px 0;
+  font-size: 14px;
   text-align: left;
 }
 
 .toggle-rating-btn:hover {
-  background: #0056b3;
+  text-decoration: underline;
 }
 
 .rating-panel {
   margin-top: 10px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background-color: #0d1117;
+  border-radius: 4px;
+  border: 1px solid #30363d;
 }
 
 .stars {
   margin-bottom: 10px;
-  display: flex;
-  gap: 5px;
 }
 
 .star {
-  font-size: 1.5rem;
-  color: #ccc;
+  font-size: 20px;
+  color: #30363d;
   cursor: pointer;
-  transition: color 0.2s;
+  margin-right: 5px;
 }
 
-.star:hover, .star.active {
-  color: #ffc107;
+.star.active {
+  color: #ffd33d;
 }
 
 .rating-panel textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 8px;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 4px;
   margin-bottom: 10px;
   min-height: 60px;
-  resize: vertical;
-  font-family: inherit;
 }
 
 .submit-rating-btn {
-  background: #28a745;
+  background-color: #238636;
   color: white;
   border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s;
-  display: block;
-  margin-left: auto;
+  font-weight: 500;
+  transition: background-color 0.2s;
 }
 
 .submit-rating-btn:hover {
-  background: #218838;
+  background-color: #2ea043;
 }
 
-@media (max-width: 768px) {
-  .ride-history-card {
-    padding: 15px;
-  }
-  
-  .ride-info h3 {
-    font-size: 1.1rem;
-  }
+.passengers-section, .driver-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #30363d;
+}
+
+ .driver-section h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #58a6ff;
+}
+
+.passengers-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #58a6ff;
+}
+
+.passengers-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.passengers-section li {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #8b949e;
+}
+
+.driver-section p {
+  font-size: 14px;
+  color: #8b949e;
+  margin: 0;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #f85149;
+  border: 1px solid #f85149;
+}
+
+.no-passengers {
+  padding: 1rem;
+  text-align: center;
+  background-color: rgba(88, 166, 255, 0.05);
+  border-radius: 6px;
+  border: 1px dashed #30363d;
+  color: #8b949e;
+  margin-bottom: 1.5rem;
 }

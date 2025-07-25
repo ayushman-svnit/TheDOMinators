@@ -16,13 +16,13 @@
   color: #666;
 }
 
-/* .rides-container {
+.rides-containero {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 20px;
 }
 
-.ride-card {
+.ride-cardo {
   background: white;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -30,10 +30,10 @@
   transition: transform 0.2s;
 }
 
-.ride-card:hover {
+.ride-cardo:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-} */
+}
 
 .ride-info h3 {
   color: #333;
@@ -102,9 +102,9 @@
 }
 
 @media (max-width: 768px) {
-  /* .rides-container {
+  .rides-containero {
     grid-template-columns: 1fr;
-  } */
+  }
   
   .user-option {
     flex-direction: column;

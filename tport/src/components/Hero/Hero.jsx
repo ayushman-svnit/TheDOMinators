@@ -34,19 +34,7 @@ const Hero = () => {
     </motion.p>
       </div>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.9, duration: 0.8 }}
-    >
-      <motion.button 
-        className="hero-button"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Plan Your Journey
-      </motion.button>
-    </motion.div>
+    
 </motion.div>
 
       

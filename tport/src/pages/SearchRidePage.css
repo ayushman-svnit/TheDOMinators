@@ -104,8 +104,9 @@
 
 .rides-grid {
   display: grid !important;
-  grid-template-columns: repeat(1, 1fr) !important; /* 👈 Only 2 per row */
+  grid-template-columns: repeat(3, 1fr) !important; /* 👈 Only 2 per row */
   gap: 1.5rem !important;
+
 }
 
 
