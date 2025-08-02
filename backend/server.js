@@ -101,7 +101,7 @@ app.use('/api/visits',visitRoutes)
 const server = http.createServer(app);
 const io = new SocketIO(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://transitflow-delta.vercel.app",
     methods: ["GET", "POST"],
     credentials: true
   }
