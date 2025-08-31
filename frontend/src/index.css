@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+
+:root {
+  /* Light Theme */
+  --light-primary: #0066ff;
+  --light-primary-dark: #0052cc;
+  --light-secondary: #00c3ff;
+  --light-accent: #00d9a6;
+  --light-dark: #222;
+  --light-light: #f9f9f9;
+  --light-gray: #777;
+  --light-light-gray: #eee;
+  --light-warning: #ff9900;
+  --light-critical: #ff4d4d;
+  --light-info: #0066ff;
+  --light-bg: #f9f9f9;
+  --light-card-bg: #ffffff;
+  --light-text: #222222;
+  --light-text-secondary: #555555;
+  --light-border: #e0e0e0;
+  
+  /* Dark Theme */
+  --dark-primary: #3a86ff;
+  --dark-primary-dark: #2667cc;
+  --dark-secondary: #00c3ff;
+  --dark-accent: #00d9a6;
+  --dark-dark: #f0f0f0;
+  --dark-light: #121212;
+  --dark-gray: #aaa;
+  --dark-light-gray: #333;
+  --dark-warning: #ffaa33;
+  --dark-critical: #ff6666;
+  --dark-info: #3a86ff;
+  --dark-bg: #121212;
+  --dark-card-bg: #1e1e1e;
+  --dark-text: #f0f0f0;
+  --dark-text-secondary: #cccccc;
+  --dark-border: #333333;
+  
+  /* Common */
+  --transition: all 0.3s ease;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
+}
+
+[data-theme="light"] {
+  --primary: var(--light-primary);
+  --primary-dark: var(--light-primary-dark);
+  --secondary: var(--light-secondary);
+  --accent: var(--light-accent);
+  --dark: var(--light-dark);
+  --light: var(--light-light);
+  --gray: var(--light-gray);
+  --light-gray: var(--light-light-gray);
+  --warning: var(--light-warning);
+  --critical: var(--light-critical);
+  --info: var(--light-info);
+  --bg: var(--light-bg);
+  --card-bg: var(--light-card-bg);
+  --text: var(--light-text);
+  --text-secondary: var(--light-text-secondary);
+  --border: var(--light-border);
+}
+
+[data-theme="dark"] {
+  --primary: var(--dark-primary);
+  --primary-dark: var(--dark-primary-dark);
+  --secondary: var(--dark-secondary);
+  --accent: var(--dark-accent);
+  --dark: var(--dark-dark);
+  --light: var(--dark-light);
+  --gray: var(--dark-gray);
+  --light-gray: var(--dark-light-gray);
+  --warning: var(--dark-warning);
+  --critical: var(--dark-critical);
+  --info: var(--dark-info);
+  --bg: var(--dark-bg);
+  --card-bg: var(--dark-card-bg);
+  --text: var(--dark-text);
+  --text-secondary: var(--dark-text-secondary);
+  --border: var(--dark-border);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, .btn {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--text);
+}
+
+.section-title span {
+  color: var(--primary);
+  position: relative;
+}
+
+.section-title span::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 3px;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Animation for flipping */
+.flipping .rotate-y-180 {
+  animation: flip 0.3s ease-in-out;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+#root{
+  text-align: left !important;
+}

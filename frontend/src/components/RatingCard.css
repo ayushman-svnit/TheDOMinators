@@ -1,0 +1,99 @@
+.rating-card {
+  background-color: #161b22;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #30363d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.rating-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+  border-color: #007bff;
+  transform: translateY(-2px);
+}
+
+.rating-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 600;
+  color: #58a6ff;
+  margin-bottom: 0.25rem;
+}
+
+.email {
+  font-size: 0.85rem;
+  color: #8b949e;
+}
+
+.rating-score {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star {
+  font-size: 1.25rem;
+  color: #30363d;
+}
+
+.star.filled {
+  color: #ffd33d;
+}
+
+.ride-info {
+  margin-bottom: 1.5rem;
+}
+
+.ride-info p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #c9d1d9;
+}
+
+.ride-info strong {
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.comment {
+  padding: 1rem;
+  background-color: rgba(88, 166, 255, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid #58a6ff;
+}
+
+.comment p {
+  margin: 0;
+  font-style: italic;
+  color: #e6edf3;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .rating-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .rating-score {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .rating-card {
+    padding: 1.25rem;
+  }
+}

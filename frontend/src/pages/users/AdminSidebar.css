@@ -1,0 +1,5 @@
+.adminSidebar-active {
+  background-color: rgba(0, 0, 0, 0.1); /* example background */
+  border-left: 4px solid #1976d2; /* MUI primary color as highlight */
+}
+

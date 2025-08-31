@@ -1,0 +1,289 @@
+/* AdminRides.css */
+.adminrides-container {
+  padding: 24px;
+  background-color: #0d1117;
+  min-height: 100vh;
+}
+
+.adminrides-title {
+  margin-bottom: 24px;
+  color: #006bd6;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #30363d;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.adminrides-tabs {
+  margin-bottom: 24px;
+  background-color: #161a20;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.adminrides-tab {
+  color: #e6edf3 !important;
+  font-weight: 500;
+  text-transform: none;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.adminrides-tab.Mui-selected {
+  color: #e6edf3 !important;
+  opacity: 1;
+  background-color: rgba(0, 107, 214, 0.2);
+  border-radius: 4px;
+}
+
+.adminrides-tab-content {
+  margin-top: 16px;
+}
+
+.adminrides-section-title {
+  color: #e6edf3;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #30363d;
+}
+
+.adminrides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.adminrides-card {
+  background-color: #161a20;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-height: 360px;
+}
+
+.adminrides-card:hover {
+  border-color: #006bd6;
+  box-shadow: 0 6px 16px rgba(0, 107, 214, 0.2);
+  transform: translateY(-2px);
+}
+
+.adminrides-card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.adminrides-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.adminrides-status {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.adminrides-vehicle {
+  text-align: right;
+}
+
+.adminrides-vehicle-model {
+  color: #e6edf3;
+  font-weight: 500;
+}
+
+.adminrides-vehicle-number {
+  color: #9ba3b4;
+  font-size: 0.85rem;
+}
+
+.adminrides-route-info {
+  margin-bottom: 8px;
+}
+
+.adminrides-route {
+  color: #e6edf3;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.adminrides-date {
+  color: #9ba3b4;
+  font-size: 0.9rem;
+}
+
+.adminrides-divider {
+  background-color: #30363d;
+  margin: 8px 0;
+  height: 1px;
+  width: 100%;
+}
+
+.adminrides-seats-pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.adminrides-seats {
+  color: #e6edf3;
+  font-size: 0.95rem;
+}
+
+.adminrides-earnings {
+  color: #00FFA3;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.adminrides-driver {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: rgba(0, 107, 214, 0.1);
+}
+
+.adminrides-driver:hover {
+  background-color: rgba(0, 107, 214, 0.2);
+}
+
+.adminrides-avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  background-color: #006bd6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.adminrides-username {
+  color: #e6edf3;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.adminrides-passengers {
+  margin-top: 8px;
+}
+
+.adminrides-passengers-title {
+  color: #e6edf3;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.adminrides-passengers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.adminrides-passenger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: rgba(0, 255, 163, 0.05);
+  margin-top: 10px;
+}
+
+.adminrides-passenger:hover {
+  background-color: rgba(0, 255, 163, 0.1);
+}
+
+.adminrides-passenger-avatar {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  background-color: #00FFA3;
+  color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.adminrides-passenger-name {
+  color: #e6edf3;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.adminrides-passenger-seats {
+  background-color: rgba(0, 107, 214, 0.1);
+  color: #006bd6;
+  font-size: 0.75rem;
+  height: 24px;
+}
+
+.adminrides-tooltip-content {
+  padding: 12px;
+  background-color: #161a20;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .adminrides-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .adminrides-container {
+    padding: 20px;
+  }
+  
+  .adminrides-title {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+  
+  .adminrides-grid {
+    gap: 20px;
+  }
+  
+  .adminrides-card {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .adminrides-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .adminrides-tabs {
+    flex-direction: column;
+  }
+  
+  .adminrides-card {
+    min-height: 320px;
+  }
+}

@@ -1,0 +1,21 @@
+
+# Ignore all .env files in root or subfolders
+**/.env
+
+# Optional: Also ignore logs or OS files
+*.log
+.DS_Store
+
+# Ignore node_modules in any subdirectory
+**/node_modules/
+
+# Ignore .env files in any subdirectory
+**/.env
+
+# Python virtual environment
+.venv/
+
+**/__pycache__
+
+**/chroma_db
+

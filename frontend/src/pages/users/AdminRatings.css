@@ -1,0 +1,228 @@
+/* AdminRatings.css */
+.adminratings-container {
+  padding: 24px;
+  background-color: #0d1117;
+  min-height: 100vh;
+}
+
+.adminratings-title {
+  margin-bottom: 32px;
+  color: #006bd6;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #30363d;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.adminratings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.adminratings-card {
+  background-color: #161a20;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-height: 280px; /* Ensures consistent height */
+  position: relative;
+}
+
+.adminratings-card:hover {
+  border-color: #006bd6;
+  box-shadow: 0 6px 16px rgba(0, 107, 214, 0.2);
+  transform: translateY(-2px);
+}
+
+.adminratings-card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.adminratings-rating-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.adminratings-score {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.adminratings-star {
+  font-size: 1.4rem;
+  transition: all 0.2s ease;
+}
+
+.adminratings-star-filled {
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+.adminratings-star-empty {
+  color: #6e7681;
+}
+
+.adminratings-comment {
+  color: #e6edf3;
+  font-style: italic;
+  padding: 12px;
+  background-color: rgba(0, 107, 214, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #006bd6;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.adminratings-ride-chip {
+  background-color: rgba(0, 255, 163, 0.1);
+  color: #00FFA3;
+  border: 1px solid rgba(0, 255, 163, 0.3);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 8px 0;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+}
+
+.adminratings-divider {
+  background-color: #30363d;
+  margin: 16px 0;
+  height: 1px;
+  width: 100%;
+}
+
+.adminratings-users-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.adminratings-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.adminratings-user:hover {
+  transform: translateX(4px);
+}
+
+.adminratings-from-user {
+  background-color: rgba(0, 107, 214, 0.1);
+  border: 1px solid rgba(0, 107, 214, 0.3);
+}
+
+.adminratings-to-user {
+  background-color: rgba(0, 255, 163, 0.08);
+  border: 1px solid rgba(0, 255, 163, 0.2);
+}
+
+.adminratings-avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  background-color: #006bd6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.adminratings-to-user .adminratings-avatar {
+  background-color: #00FFA3;
+  color: #1e1e1e;
+}
+
+.adminratings-username {
+  color: #e6edf3;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.adminratings-timestamp {
+  display: block;
+  color: #9ba3b4;
+  font-size: 0.8rem;
+  text-align: right;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.adminratings-tooltip-content {
+  padding: 12px;
+  background-color: #161a20;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .adminratings-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .adminratings-container {
+    padding: 20px;
+  }
+  
+  .adminratings-title {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+  
+  .adminratings-grid {
+    gap: 20px;
+  }
+  
+  .adminratings-card {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .adminratings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .adminratings-card {
+    min-height: 240px;
+  }
+  
+  .adminratings-star {
+    font-size: 1.2rem;
+  }
+  
+  .adminratings-comment {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}

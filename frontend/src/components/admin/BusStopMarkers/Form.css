@@ -1,0 +1,162 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  max-height: 70vh;
+  overflow: hidden;
+  background-color: #161a20;
+  color: #e6edf3;
+}
+
+.form-title {
+  position: sticky;
+  top: 0;
+  background-color: #161a20;
+  padding: 16px 40px 12px 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e6edf3;
+  text-align: center;
+  z-index: 90;
+  border-bottom: 1px solid #30363d;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #30363d #161a20;
+}
+
+form::-webkit-scrollbar {
+  width: 6px;
+}
+
+form::-webkit-scrollbar-thumb {
+  background-color: #30363d;
+  border-radius: 3px;
+}
+
+form::-webkit-scrollbar-track {
+  background-color: #161a20;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+  color: #9ba3b4;
+  margin-bottom: 5px;
+}
+
+.form {
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 4px;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  background-color: #0d1117;
+  color: #e6edf3;
+  transition: all 0.3s;
+}
+
+.form:focus {
+  border-color: #006bd6;
+  box-shadow: 0 0 0 2px rgba(0, 107, 255, 0.2);
+  outline: none;
+}
+
+.form:disabled {
+  background-color: #1e2229;
+  color: white;
+}
+
+.butn {
+  font-size: 14px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #006bd6;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.butn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background-color: #30363d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.timetable-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #30363d;
+}
+
+.timetable-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #e6edf3;
+}
+
+.timetable-item {
+  background-color: #1e2229;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.timetable-add {
+  background-color: #28a745;
+}
+
+.timetable-add:hover {
+  background-color: #218838;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #006bd6 0%, #0052a3 100%);
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%);
+}
+
+.locate-button {
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+
+.locate-button:hover {
+  background: linear-gradient(135deg, #5a6268 0%, #3a4047 100%);
+}

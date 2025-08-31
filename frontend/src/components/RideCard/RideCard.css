@@ -1,0 +1,277 @@
+.ride-card {
+  background-color: #161b22 !important;
+  border-radius: 8px !important;
+  padding: 1.5rem !important;
+  border: 1px solid #30363d !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ride-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2) !important;
+  border-color: #007bff !important;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.route-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.route-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #58a6ff;
+}
+
+.route-icon {
+  color: #58a6ff;
+}
+
+.datetime-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.date-icon, .time-icon {
+  font-size: 1rem;
+  color: #8b949e;
+}
+
+.driver-info {
+  margin-bottom: 1.5rem;
+}
+
+.driver-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.driver-icon {
+  color: #58a6ff;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.star-icon {
+  font-size: 1rem;
+}
+
+.star-icon.full-star {
+  color: #ffc107;
+}
+
+.star-icon.half-star {
+  color: #ffc107;
+  opacity: 0.7;
+}
+
+.star-icon.empty-star {
+  color: #8b949e;
+}
+
+.rating-stars span {
+  font-size: 0.8rem;
+  color: #8b949e;
+  margin-left: 0.3rem;
+}
+
+.vehicle-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.vehicle-icon {
+  font-size: 1rem;
+  color: #8b949e;
+}
+
+.ride-details {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.detail-icon {
+  font-size: 1rem;
+  color: #8b949e;
+}
+
+.status-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.upcoming {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.status-badge.completed {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: lightblue;
+  border: 1px solid #6c757d;
+}
+
+.status-badge.cancelled {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.feedbacks-section {
+  margin-bottom: 1.5rem;
+}
+
+.feedbacks-section h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #58a6ff;
+}
+
+.feedbacks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.feedback-item {
+  background-color: rgba(88, 166, 255, 0.05);
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 0.8rem;
+}
+
+.feedback-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-rating span {
+  font-size: 0.8rem;
+  color: #ffc107;
+  margin-left: 0.3rem;
+}
+
+.feedback-comment {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #8b949e;
+  font-style: italic;
+}
+
+.request-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.seats-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.seats-selector label {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.seats-selector input {
+  width: 60px;
+  padding: 0.5rem;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  color: #c9d1d9;
+  text-align: center;
+}
+
+.request-button {
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.request-button:hover {
+  background-color: #0069d9;
+}
+
+.request-button:disabled {
+  background-color: #4d4d4d;
+  cursor: not-allowed;
+}
+
+.request-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.request-status.success {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.request-status.error {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.status-icon {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .ride-details {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}

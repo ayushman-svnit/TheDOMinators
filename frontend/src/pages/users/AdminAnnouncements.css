@@ -1,0 +1,183 @@
+.AdminAnnouncements-container {
+  padding: 24px;
+  background-color: #0d1117;
+  min-height: 100vh;
+}
+
+.AdminAnnouncements-title {
+  margin-bottom: 32px;
+  color: #006bd6;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #30363d;
+}
+
+.AdminAnnouncements-grid {
+  margin-top: 20px;
+}
+
+.AdminAnnouncements-form-card,
+.AdminAnnouncements-list-card {
+  background-color: #161a20;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.AdminAnnouncements-form-title,
+.AdminAnnouncements-list-title {
+  color: #e6edf3;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #30363d;
+}
+
+.AdminAnnouncements-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.AdminAnnouncements-input .MuiOutlinedInput-root {
+  color: #e6edf3;
+}
+
+.AdminAnnouncements-input .MuiOutlinedInput-notchedOutline {
+  border-color: #30363d;
+}
+
+.AdminAnnouncements-input .MuiInputLabel-root {
+  color: #9ba3b4;
+}
+
+.AdminAnnouncements-input .MuiInputLabel-root.Mui-focused {
+  color: #006bd6;
+}
+
+.AdminAnnouncements-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #006bd6;
+}
+
+.AdminAnnouncements-form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.AdminAnnouncements-submit-btn {
+  background-color: #006bd6;
+  color: white;
+}
+
+.AdminAnnouncements-submit-btn:hover {
+  background-color: #0052a3;
+}
+
+.AdminAnnouncements-cancel-btn {
+  color: #e6edf3;
+  border-color: #30363d;
+}
+
+.AdminAnnouncements-cancel-btn:hover {
+  border-color: #006bd6;
+}
+
+.AdminAnnouncements-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.AdminAnnouncements-empty {
+  color: #9ba3b4;
+  text-align: center;
+  padding: 20px;
+}
+
+.AdminAnnouncements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.AdminAnnouncements-announcement-card {
+  background-color: #161a20;
+  border: 1px solid #30363d;
+  transition: all 0.3s ease;
+}
+
+.AdminAnnouncements-announcement-card:hover {
+  border-color: #006bd6;
+  box-shadow: 0 4px 12px rgba(0, 107, 214, 0.15);
+}
+
+.AdminAnnouncements-announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AdminAnnouncements-announcement-title {
+  color: #e6edf3;
+  font-weight: 600;
+}
+
+.AdminAnnouncements-announcement-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.AdminAnnouncements-edit-btn {
+  color: #006bd6;
+}
+
+.AdminAnnouncements-delete-btn {
+  color: #f85149;
+}
+
+.AdminAnnouncements-announcement-date {
+  color: #9ba3b4;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.AdminAnnouncements-divider {
+  background-color: #30363d;
+  margin: 12px 0;
+}
+
+.AdminAnnouncements-announcement-content {
+  color: #e6edf3;
+  white-space: pre-wrap;
+}
+
+/* Scrollbar styling */
+.AdminAnnouncements-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.AdminAnnouncements-list::-webkit-scrollbar-track {
+  background: #161a20;
+}
+
+.AdminAnnouncements-list::-webkit-scrollbar-thumb {
+  background-color: #30363d;
+  border-radius: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .AdminAnnouncements-grid {
+    flex-direction: column;
+  }
+  
+  .AdminAnnouncements-form-card,
+  .AdminAnnouncements-list-card {
+    margin-bottom: 24px;
+  }
+}

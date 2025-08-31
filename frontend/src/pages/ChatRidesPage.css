@@ -1,0 +1,166 @@
+.chat-rides-page {
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #0d1117;
+  color: #e6edf3;
+  min-height: calc(100vh - 120px);
+}
+
+.chat-rides-page h2 {
+  font-size: 2rem;
+  color: #58a6ff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 200px);
+  color: #8b949e;
+}
+
+.no-rides {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(88, 166, 255, 0.05);
+  border-radius: 8px;
+  border: 1px dashed #30363d;
+  color: #8b949e;
+}
+
+.rides-containero {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.ride-cardo {
+  background-color: #161b22;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #30363d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ride-cardo:hover {
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+  border-color: #007bff;
+  transform: translateY(-2px);
+}
+
+.ride-info {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.ride-info h3 {
+  margin: 0 0 1rem 0;
+  color: #58a6ff;
+  font-size: 1.25rem;
+}
+
+.ride-info p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #c9d1d9;
+}
+
+.ride-info strong {
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.stat-completed {
+  color: #3fb950;
+}
+
+.stat-upcoming {
+  color: #d29922;
+}
+
+.stat-cancelled {
+  color: #f85149;
+}
+
+.chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.passengers-section h4 {
+  margin: 0 0 1rem 0;
+  color: #58a6ff;
+  font-size: 1.1rem;
+}
+
+.user-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #21262d;
+  border-radius: 6px;
+}
+
+.user-option p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #e6edf3;
+}
+
+.start-chat-btn {
+  background-color: #238636;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.start-chat-btn:hover {
+  background-color: #2ea043;
+}
+
+@media (max-width: 1024px) {
+  .rides-containero {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .chat-rides-page {
+    padding: 1.5rem;
+  }
+  
+  .rides-containero {
+    grid-template-columns: 1fr;
+  }
+  
+  .user-option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .start-chat-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-rides-page {
+    padding: 1rem;
+  }
+  
+  .chat-rides-page h2 {
+    font-size: 1.75rem;
+  }
+}
