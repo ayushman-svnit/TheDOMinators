@@ -92,6 +92,7 @@ TransitFlow is a comprehensive urban mobility platform that integrates multiple 
    ```bash
    cd backend
    npm install
+   cd ..
    cd frontend
    npm install
    ```
